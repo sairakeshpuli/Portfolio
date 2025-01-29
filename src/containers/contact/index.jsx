@@ -13,9 +13,44 @@ const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const validateForm = () => {
+    const newErrors = { name: "", email: "", message: "" };
+
+    // Validate Name
+    if (!name) {
+      newErrors.name = "Name is required";
+    }
+
+    // Validate Email
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!email) {
+      newErrors.email = "Email is required";
+    } else if (!emailPattern.test(email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    // Validate Message
+    if (!message) {
+      newErrors.message = "description is required";
+    } else if (message.length < 10) {
+      newErrors.message = "description should be at least 10 characters long";
+    }
+
+    setErrors(newErrors);
+
+    // Return whether the form is valid or not
+    return Object.values(newErrors).every((error) => error === "");
+  };
  
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (validateForm()) {
     const templateParams = {
       from_name: name,
       from_email: email,
@@ -46,6 +81,7 @@ const Contact = () => {
           console.error("Error sending email:", error);
         }
       );
+    }
 
   }
   return (
@@ -93,6 +129,8 @@ const Contact = () => {
                 <label htmlFor="name" className="nameLabel">
                   Name
                 </label>
+                {errors.name && <p className="error">{errors.name}</p>}
+
               </div>
               <div>
                 <input
@@ -106,6 +144,8 @@ const Contact = () => {
                 <label htmlFor="email" className="emailLabel">
                   Email
                 </label>
+                {errors.email && <p className="error">{errors.email}</p>}
+
               </div>
               <div>
                 <textarea
@@ -120,6 +160,8 @@ const Contact = () => {
                 <label htmlFor="description" className="descriptionLabel">
                   Description
                 </label>
+                {errors.message && <p className="error">{errors.message}</p>}
+
               </div>
             </div>
             <button onClick={handleSubmit}>Submit</button>
