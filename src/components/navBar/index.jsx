@@ -38,30 +38,34 @@ const Navbar = () => {
   };
   return (
     <div>
-      <nav className="navbar">
-        <div className="navbar__container">
-          <Link to={"/"} className="navbar__container__logo">
-            <FaReact size={30} />
-          </Link>
+       <nav className="navbar">
+      <div className="navbar__container">
+        {/* Logo */}
+        <Link to={"/"} className="navbar__container__logo">
+          <FaReact size={30} />
+        </Link>
+
+        {/* Mobile Menu Icon */}
+        <div className="nav-icon" onClick={handleToggleIcon}>
+          {toggleIcon ? <HiX size={30} /> : <FaBars size={30} />}
         </div>
-        <ul
-          className={`navbar__container__menu ${toggleIcon ? "active" : ""} `}
-        >
-          {data?.map((item, key) => (
+
+        {/* Navigation Menu */}
+        <ul className={`navbar__container__menu ${toggleIcon ? "active" : ""}`}>
+          {data.map((item, key) => (
             <li key={key} className="navbar__container__menu__item">
               <Link
                 className="navbar__container__menu__item__links"
                 to={item.to}
+                onClick={() => setToggleIcon(false)} // Close menu on click
               >
                 {item.label}
               </Link>
             </li>
           ))}
         </ul>
-        <div className="nav-icon" onClick={handleToggleIcon}>
-          {toggleIcon ? <HiX size={30} /> : <FaBars size={30} />}
-        </div>
-      </nav>
+      </div>
+    </nav>
     </div>
   );
 };

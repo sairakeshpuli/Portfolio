@@ -1,45 +1,48 @@
 import React from "react";
 import PageHeaderContent from "../../components/pageHeaderContent";
 import { BsInfoCircleFill } from "react-icons/bs";
-import ImageOne from "../../images/image1.jpg";
-import ImageTwo from "../../images/image2.jpg";
-import ImageThree from "../../images/image3.jpg";
-import ImageFour from "../../images/image4.jpg";
-import ImageFive from "../../images/image5.jpg";
+
 import "./styles.scss";
 import { useState } from "react";
 
 const portfolioData = [
   {
     id: 2,
-    name: "Ecommerce",
-    image: ImageOne,
-    link: "",
-  },
-  {
-    id: 3,
-    name: "Notes App",
-    link: "",
-    image: ImageTwo,
+    name: "mloflo.com",
+    image: "https://mloflo.com/wp-content/uploads/2022/06/mloflo-fb.png",
+    link: "https://mloflo.com/",
   },
   {
     id: 2,
-    name: "Supplier Design",
-    image: ImageThree,
-    link: "",
+    name: "Helixsense",
+    link: "https://helixsense.com/",
+    image: "https://helixsense.com/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-19-at-4.18.12-PM.webp",
   },
   {
     id: 2,
-    name: "Todo App",
-    image: ImageFour,
+    name: "Feet first",
+    image: "https://portal.feetfirstnp.org/assets/undraw_meditation-074dc35a.svg",
+    link: "https://www.feetfirstnp.org/",
+  },
+  {
+    id: 2,
+    name: "Emoji Game",
+    image: "https://img.craftpix.net/2022/02/Emoji-Quiz-Game-GUI-Kit.jpg",
 
-    link: "",
+    link: "https://rakeshemoji.ccbp.tech",
   },
   {
     id: 3,
-    name: "Shopping cart design",
-    image: ImageFive,
-    link: "",
+    name: "Emoji Game",
+    image: "https://img.craftpix.net/2022/02/Emoji-Quiz-Game-GUI-Kit.jpg",
+
+    link: "https://rakeshemoji.ccbp.tech",
+  },
+  {
+    id: 3,
+    name: "Feet first",
+    image: "https://portal.feetfirstnp.org/assets/undraw_meditation-074dc35a.svg",
+    link: "https://www.feetfirstnp.org",
   },
 ];
 
@@ -70,13 +73,10 @@ const Portfolio = () => {
     setHoveredValue(index);
   }
 
-  console.log("====================================");
-  console.log(hoveredValue);
-  console.log("====================================");
 
   const filteredItems =
     filteredvalue === 1
-      ? portfolioData
+      ? portfolioData.filter((item) => item.id === 2)
       : portfolioData.filter((item) => item.id === filteredvalue);
 
   console.log(filteredItems);
@@ -108,7 +108,7 @@ const Portfolio = () => {
               onMouseLeave={() => handleHover(null)}
             >
               <div className="portfolio__content__cards__item__img-wrapper">
-                <a  href={item.link}>
+                <a href={item.link}>
                   <img alt="dummy data" src={item.image} />
                 </a>
               </div>
@@ -116,7 +116,8 @@ const Portfolio = () => {
                 {index === hoveredValue && (
                   <div>
                     <p>{item.name}</p>
-                    <button>Visit</button>
+                    <button onClick={() => window.open(item.link, "_blank")}>Visit</button>
+
                   </div>
                 )}
               </div>

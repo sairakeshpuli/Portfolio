@@ -39,7 +39,7 @@
           font-size: 18px;
           font-weight: 700;
           letter-spacing: 0.5px;
-          border-bottom: 2px solid var(--yellow-theme-main-color);
+          // border-bottom: 2px solid var(--yellow-theme-main-color);
           position: relative;
           display: inline-block;
           margin-right: 16px;
@@ -49,6 +49,12 @@
 
         span.value {
           border: none;
+        }
+       
+        @media (max-width: 767px) {
+          span.value,span.title {
+              font-size: 1.3rem; 
+          }
         }
       }
     }
@@ -104,6 +110,13 @@
     }
 }
 
+@media (max-width: 767px) {
+  .about h3 {
+      font-size: 1.5rem; 
+  }
+}
+
+
 @media only screen and (max-width : 768px){
     .about__content{
         flex-direction: column;
@@ -149,4 +162,12 @@
     }
 
 
+}
+
+
+@media (max-width: 767px) {
+  .about p{
+      font-size:1.3rem;
+    
+  }
 }

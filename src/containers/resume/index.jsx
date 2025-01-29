@@ -15,7 +15,7 @@ const Resume = () => {
     <section id="resume" className="resume">
       <PageHeaderContent
         headerText="My Resume"
-        icon={<BsInfoCircleFill size={40} />}
+        icon={<BsInfoCircleFill size={30} />}
       />
       <div className="timeline">
         <div className="timeline__experience">
@@ -33,7 +33,7 @@ const Resume = () => {
                   color : 'var(--yellow-theme-sub-text-color)',
                   border : '1.5px solid var(--yellow-theme-main-color)'
                 }}
-                date="2020 - Present"
+                date={item.date}
                 icon={<MdWork/>}
                 iconStyle={{
                   background : '#181818',
@@ -71,7 +71,7 @@ const Resume = () => {
                   color : 'var(--yellow-theme-sub-text-color)',
                   border : '1.5px solid var(--yellow-theme-main-color)'
                 }}
-                date="2020 - Present"
+                date={item.date}
                 icon={<MdWork/>}
                 iconStyle={{
                   background : '#181818',

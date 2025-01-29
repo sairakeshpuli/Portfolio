@@ -26,6 +26,11 @@
             padding: 5px 10px;
             border-bottom: 2px solid var(--yellow-theme-main-color);
         }
+        @media (max-width: 767px) {
+            &__header-text{ 
+                font-size: 1.7rem; 
+            }
+          }
 
         &__header-text::before , &__header-text::after{
             position: absolute;
@@ -95,3 +100,10 @@
         }
     }
 }
+
+
+@media (max-width: 767px) {
+    .about h3 {
+        font-size: 1.5rem; 
+    }
+  }

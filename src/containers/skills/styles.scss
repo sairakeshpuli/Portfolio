@@ -60,6 +60,14 @@
     }
 }
 
+@media (max-width: 767px) {
+    .skills {
+        &__content-wrapper__inner-content__category-text {
+        font-size: 18px; 
+    }
+  }
+}
+
 @media only screen and (max-width : 768px){
     .skills{
         &__content-wrapper{

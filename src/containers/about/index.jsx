@@ -94,13 +94,13 @@ const About = () => {
           >
             <div className="about__content__servicesWrapper__innerContent">
               <div>
-                <FaDev size={60} color="var( --yellow-theme-main-color)" />
+                <FaDev size={40} color="var( --yellow-theme-main-color)" style={{marginTop:'15px'}} />
               </div>
               <div>
                 <DiAndroid size={60} color="var( --yellow-theme-main-color)" />
               </div>
               <div>
-                <FaDatabase size={60} color="var( --yellow-theme-main-color)" />
+                <FaDatabase size={40} color="var( --yellow-theme-main-color)" style={{marginBottom:'15px'}}/>
               </div>
               <div>
                 <DiApple size={60} color="var( --yellow-theme-main-color)" />
